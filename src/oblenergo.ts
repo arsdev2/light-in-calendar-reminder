@@ -92,7 +92,9 @@ export async function getScheduleInfo(accountNumber: string | number): Promise<D
             scheduleInfo: oblenergoResponse.current
         } as DaySchedule)
     }
+
     const tomorrow = oblenergoResponse.graphs.tomorrow;
+
     if(tomorrow != null) {
         const tomorrowMoment = todayMoment.clone().add(1, 'days');
         result.push({
@@ -102,6 +104,7 @@ export async function getScheduleInfo(accountNumber: string | number): Promise<D
             scheduleInfo: oblenergoResponse.current
         } as DaySchedule)
     }
+
     return result
 }
 
