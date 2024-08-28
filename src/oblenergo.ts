@@ -82,7 +82,6 @@ export async function getScheduleInfo(accountNumber: string | number): Promise<D
     let result: DaySchedule[] = []
     const today = oblenergoResponse.graphs.today;
     const todayMoment = tz.tz(timezone);
-
     if(today != null) {
         result.push({
             events: parseOblenergoToScheduleEvent(today),
