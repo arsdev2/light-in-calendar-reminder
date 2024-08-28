@@ -84,6 +84,7 @@ export async function getScheduleInfo(accountNumber: string | number): Promise<D
     const todayMoment = tz.tz(timezone);
 
     if(today != null) {
+
         result.push({
             events: parseOblenergoToScheduleEvent(today),
             timeRangeStart: todayMoment.clone().hour(0).minute(0).second(0),
