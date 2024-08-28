@@ -63,8 +63,14 @@ export function isScheduleEventsTheSame(eventsA: ScheduleEvent[], eventsB: Sched
     }
     for (let i = 0;i<eventsA.length;i++) {
         let eventA = eventsA[i]
-        let eventB = eventsB[i]
-        if(eventA.hash != eventB.hash) {
+        let found = false
+        for(let j = 0;j<eventsB.length;j++) {
+            if(eventA.hash == eventsB[j].hash) {
+                found = true
+                break
+            }
+        }
+        if(!found) {
             return false
         }
     }
