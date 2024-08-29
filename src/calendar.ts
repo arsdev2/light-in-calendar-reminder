@@ -95,12 +95,12 @@ async function checkForDeletedStatusEvent(calendarId: string, event: ScheduleEve
 
 export async function deleteEventsByTimeRange(calendarId: string, fromTimeRange: tz.Moment, toTimeRange: tz.Moment) {
     await checkAuth()
-    let gEvents = await calendar.events.list({
+    let gEvents = (await calendar.events.list({
             calendarId: calendarId,
             timeMin: fromTimeRange.format(),
             timeMax: toTimeRange.format()
         }
-    ).data?.items
+    )).data?.items
     if(!gEvents) {
         return
     }
